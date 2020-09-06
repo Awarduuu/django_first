@@ -40,6 +40,13 @@ INSTALLED_APPS = [
     'first',
     'introduction',
     'posts',
+    'django.contrib.sites',
+    # allauth 관련 설정
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    # providers
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +132,15 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'project_1', 'static')
 ]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'project_1', 'media')
+
+AUTHENTICATION_BACKENDS = [
+    # Django superuser로 로그인 가능
+    'django.contrib.auth.backends.ModelBackend',
+    # 이메일 등으로 로그인 가능
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+SITE_ID=1
+LOGIN_REDIRECT_URL = '/'    
