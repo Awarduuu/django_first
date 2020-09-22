@@ -48,7 +48,7 @@ def update(request, id):
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             form.save(user = request.user)
-            return redirect('post:show', post.id)
+            return redirect('posts:show', post.id)
     else:
         form = PostForm(instance=post)
     return render(request, 'posts/update.html', {'form' : form})
