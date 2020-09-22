@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container">
+<!-- <div class="container">
   <h1>
     새로운 글 작성하기
   </h1>
@@ -16,6 +16,13 @@
     </div>
       <input type="file" name="image">
       <input type="submit" value="글 작성" class="btn btn-outline-primary">
+  </form>
+</div> -->
+<div>
+  <form action="{% url 'posts:create' %}" method ="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+      {{ form.as_p }}
+    <input type="submit" value="작성하기" class="btn btn-primary">
   </form>
 </div>
 {% endblock %}

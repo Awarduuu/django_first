@@ -26,6 +26,7 @@
         <i class="far fa-heart"></i>
     {% endif %}
 </a>
+<p>{{ post.like_user_set }}</p>
 {% if user == post.user %}
 <a href="{% url 'posts:update' post.pk %}"  class="btn btn-outline-primary">수정하기</a>
 <a href="{% url 'posts:delete' post.pk %}"  class="btn btn-outline-danger">삭제하기</a>
